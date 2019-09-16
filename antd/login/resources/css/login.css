@@ -117,8 +117,8 @@ body {
   top: 50px;
 }
 .message-text {
-  width: 322px;
-  height: 14px;
+  width: 358px;
+  height: 0px;
   opacity: 0.87;
   font-family: Muli;
   font-size: 14px;
@@ -126,15 +126,16 @@ body {
   font-style: normal;
   font-stretch: normal;
   line-height: 1.3;
-  letter-spacing: -0.4px;
   text-align: left;
   color: red;
   border: 0px;
   position: relative;
   top: 216px;
-  display: inline-flex;
+  display: block;
+  margin: 0 auto;
+  /* display: inline-flex;
   align-items: center;
-  flex-direction: column;
+  flex-direction: column; */
 }
 .identity-providers {
   width: 270px;

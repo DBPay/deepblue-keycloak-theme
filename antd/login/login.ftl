@@ -109,7 +109,7 @@
                                             </div>
                                             <div tabindex="0" role="presentation"
                                                 style="width: 0px; height: 0px; overflow: hidden; position: absolute;"></div>
-                                            <div class="ant-tabs-content ant-tabs-content-no-animated ant-tabs-top-content">
+                                            <div class="ant-tabs-content ant-tabs-content-no-animated ant-tabs-top-content" style="padding-top:20px">
                                                 <div role="tabpanel" class="ant-tabs-tabpane ant-tabs-tabpane-active">
                                                     <div tabindex="0" role="presentation"
                                                         style="width: 0px; height: 0px; overflow: hidden; position: absolute;">
@@ -131,8 +131,6 @@
                                                                                 </svg></i></span>
                                                                         <input id="username" placeholder='${msg("username")}'
                                                                             type="text" name="username"
-                                                                            data-__meta="[object Object]"
-                                                                            data-__field="[object Object]"
                                                                             class="ant-input ant-input-lg"
                                                                             value=""></span></span></div>
                                                         </div>
@@ -154,8 +152,6 @@
                                                                                 </svg></i></span>
                                                                         <input type="password" name="password" id="password"
                                                                             placeholder='${msg("password")}'
-                                                                            data-__meta="[object Object]"
-                                                                            data-__field="[object Object]"
                                                                             class="ant-input ant-input-lg"
                                                                             value=""></span></span>
                                                                              <div class="ant-form-explain error_msg" id="error_msg"></div>

@@ -9111,7 +9111,7 @@ html {
 
 .ant-btn-two-chinese-chars>:not(.anticon) {
     margin-right: -.34em;
-    letter-spacing: .34em
+    letter-spacing: inherit
 }
 
 .ant-btn-block {
