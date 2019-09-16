@@ -100,7 +100,7 @@
                                             </div>
                                             <div tabindex="0" role="presentation"
                                                 style="width: 0px; height: 0px; overflow: hidden; position: absolute;"></div>
-                                            <div class="ant-tabs-content ant-tabs-content-no-animated ant-tabs-top-content" style="padding-top:20px">
+                                            <div class="ant-tabs-content ant-tabs-content-no-animated ant-tabs-top-content" style="padding-top:42px">
                                                 <div role="tabpanel" class="ant-tabs-tabpane ant-tabs-tabpane-active">
                                                     <div tabindex="0" role="presentation"
                                                         style="width: 0px; height: 0px; overflow: hidden; position: absolute;">
