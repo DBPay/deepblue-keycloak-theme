@@ -19,7 +19,6 @@
         <#nested "header">
         <div class="login-content">
             <div>
-                <#nested "form">
                 <#if displayMessage && message?has_content>
                     <div class="alert alert-${message.type}">
                         <#if message.type = 'success'><span class="${properties.kcFeedbackSuccessIcon!}"></span></#if>
@@ -29,6 +28,7 @@
                         <span class="message-text">${message.summary?no_esc}</span>
                     </div>
                 </#if>
+                <#nested "form">
             </div>
         </div>
 	</body>
