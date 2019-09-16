@@ -35,8 +35,17 @@
         <div id="root" class="">
             <div>
                 <div class="antd-pro-layouts-user-layout-container">
+                    <#if displayMessage && message?has_content>
+                        <div class="alert alert-${message.type}">
+                            <#if message.type = 'success'><span class="${properties.kcFeedbackSuccessIcon!}"></span></#if>
+                            <#if message.type = 'warning'><span class="${properties.kcFeedbackWarningIcon!}"></span></#if>
+                            <#if message.type = 'error'><span class="${properties.kcFeedbackErrorIcon!}"></span></#if>
+                            <#if message.type = 'info'><span class="${properties.kcFeedbackInfoIcon!}"></span></#if>
+                            <span class="message-text">${message.summary?no_esc}</span>
+                        </div>
+                    </#if>
                     <div class="antd-pro-layouts-user-layout-lang"><span
-                            class="antd-pro-components-select-lang-index-dropDown ant-dropdown-trigger"><i
+                            class="antd-pro-components-select-lang-index-dropDown ant-dropdown-trigger" style="display: inline-block;padding-top: 5px;"><i
                                 aria-label="图标: global" title="语言" class="anticon anticon-global"><svg
                                     viewBox="64 64 896 896" class="" data-icon="global" width="1em" height="1em"
                                     fill="currentColor" aria-hidden="true" focusable="false">
@@ -148,7 +157,9 @@
                                                                             data-__meta="[object Object]"
                                                                             data-__field="[object Object]"
                                                                             class="ant-input ant-input-lg"
-                                                                            value=""></span></span></div>
+                                                                            value=""></span></span>
+                                                                             <div class="ant-form-explain error_msg" id="error_msg"></div>
+                                                                            </div>
                                                         </div>
                                                     </div>
                                                     <div tabindex="0" role="presentation"
@@ -171,9 +182,7 @@
                                                                                         d="M744 62H280c-35.3 0-64 28.7-64 64v768c0 35.3 28.7 64 64 64h464c35.3 0 64-28.7 64-64V126c0-35.3-28.7-64-64-64zm-8 824H288V134h448v752zM472 784a40 40 0 1 0 80 0 40 40 0 1 0-80 0z">
                                                                                     </path>
                                                                                 </svg></i></span><input placeholder='${msg("mobileNumber")}'
-                                                                            type="text" id="mobile"
-                                                                            data-__meta="[object Object]"
-                                                                            data-__field="[object Object]"
+                                                                            type="text" id="mobile" name="mobile" 
                                                                             class="ant-input ant-input-lg"
                                                                             value=""></span></span></div>
                                                         </div>
@@ -199,9 +208,7 @@
                                                                                                 d="M928 160H96c-17.7 0-32 14.3-32 32v640c0 17.7 14.3 32 32 32h832c17.7 0 32-14.3 32-32V192c0-17.7-14.3-32-32-32zm-40 110.8V792H136V270.8l-27.6-21.5 39.3-50.5 42.8 33.3h643.1l42.8-33.3 39.3 50.5-27.7 21.5zM833.6 232L512 482 190.4 232l-42.8-33.3-39.3 50.5 27.6 21.5 341.6 265.6a55.99 55.99 0 0 0 68.7 0L888 270.8l27.6-21.5-39.3-50.5-42.7 33.2z">
                                                                                             </path>
                                                                                         </svg></i></span><input
-                                                                                    placeholder='${msg("authenticatorCode")}' type="text" id="captcha"
-                                                                                    data-__meta="[object Object]"
-                                                                                    data-__field="[object Object]"
+                                                                                    placeholder='${msg("authenticatorCode")}' type="text" id="captcha" name="captcha"
                                                                                     class="ant-input ant-input-lg"
                                                                                     value=""></span></div>
                                                                         <div class="ant-col ant-col-8"
@@ -210,7 +217,10 @@
                                                                                 class="ant-btn antd-pro-pages-user-login-components-login-index-getCaptcha ant-btn-lg"><span>${msg("getAuthenticatorCode")} </span></button>
                                                                         </div>
                                                                     </div>
-                                                                </span></div>
+                                                                </span>
+                                                                                                                                <div class="ant-form-explain error_msg" id="error_msg"></div>
+
+                                                                </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -252,6 +262,20 @@
                                                     d="M308.6 545.7c-19.8 2-57.1 10.7-77.4 28.6-61 53-24.5 150 99 150 71.8 0 143.5-45.7 199.8-119-80.2-38.9-148.1-66.8-221.4-59.6zm460.5 67c100.1 33.4 154.7 43 166.7 44.8A445.9 445.9 0 0 0 960 512c0-247.4-200.6-448-448-448S64 264.6 64 512s200.6 448 448 448c155.9 0 293.2-79.7 373.5-200.5-75.6-29.8-213.6-85-286.8-120.1-69.9 85.7-160.1 137.8-253.7 137.8-158.4 0-212.1-138.1-137.2-229 16.3-19.8 44.2-38.7 87.3-49.4 67.5-16.5 175 10.3 275.7 43.4 18.1-33.3 33.4-69.9 44.7-108.9H305.1V402h160v-56.2H271.3v-31.3h193.8v-80.1s0-13.5 13.7-13.5H557v93.6h191.7v31.3H557.1V402h156.4c-15 61.1-37.7 117.4-66.2 166.8 47.5 17.1 90.1 33.3 121.8 43.9z">
                                                 </path>
                                             </svg></i> -->
+                                             <#if social.providers??>
+                                            <span>${msg("selectAlternative")}</span>
+                                            <div id="social-providers">
+                                                <#list social.providers as p>
+                                                <a href="${p.loginUrl}" id="zocial-${p.alias}">
+                                                    <i class="anticon anticon-${p.providerId}-circle antd-pro-pages-user-login-style-icon">
+                                                        <svg viewBox="64 64 896 896" class="" data-icon="${p.providerId}-circle" width="1em" height="1em" fill="currentColor" aria-hidden="true" focusable="false">
+                                                            <path d="M308.6 545.7c-19.8 2-57.1 10.7-77.4 28.6-61 53-24.5 150 99 150 71.8 0 143.5-45.7 199.8-119-80.2-38.9-148.1-66.8-221.4-59.6zm460.5 67c100.1 33.4 154.7 43 166.7 44.8A445.9 445.9 0 0 0 960 512c0-247.4-200.6-448-448-448S64 264.6 64 512s200.6 448 448 448c155.9 0 293.2-79.7 373.5-200.5-75.6-29.8-213.6-85-286.8-120.1-69.9 85.7-160.1 137.8-253.7 137.8-158.4 0-212.1-138.1-137.2-229 16.3-19.8 44.2-38.7 87.3-49.4 67.5-16.5 175 10.3 275.7 43.4 18.1-33.3 33.4-69.9 44.7-108.9H305.1V402h160v-56.2H271.3v-31.3h193.8v-80.1s0-13.5 13.7-13.5H557v93.6h191.7v31.3H557.1V402h156.4c-15 61.1-37.7 117.4-66.2 166.8 47.5 17.1 90.1 33.3 121.8 43.9z"></path>
+                                                        </svg>
+                                                    </i> 
+                                                 </a>
+                                                </#list>
+                                            </div>
+                                            </#if>
                                             <#if social.providers??>
                                                 <p class="para">${msg("selectAlternative")}</p>
                                                 <div id="social-providers">
@@ -284,6 +308,8 @@
         </div>
     </#if>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://unpkg.com/validator.tool@1.0.10/dist/validator.min.js"></script>
+
     <script>
 
         $('.ant-tabs-tab').click(function(){
@@ -302,29 +328,81 @@
         }
         })
         function login() {
+            let username = $('#username').val()
+            let password = $('#password').val()
             var dataObj = {
-                username: $('#username').val(),
-                password: $('#password').val()
+                username,
+                password
             }
-            $.ajax({
-                //几个参数需要注意一下
-                type: "POST", //方法类型
-                url: $('#passwordForm').attr('action'),
-                data: $.param(dataObj),
-                success: function (result) {
-                    alert("成功")
-                    console.log(result); //打印服务端返回的数据(调试用)
-                    if (result.resultCode == 200) {
-                        console.log('SUCCESS');
-                    };
+          var validator = new Validator('passwordForm', [ {
+                    name: "username",
+                    display: "Please enter your username!",
+                    rules: 'required'
+                }, {
+                    name: "password",
+                    display: "Please enter your password!",
+                    rules: 'required'
+                }, {
+                    name: "mobile",
+                    display: "Please enter your phone number!",
+                    rules: 'required|is_phone'
+                }, {
+                    name: "captcha",
+                    display: "Please enter the verification code!",
+                    rules: 'required'
                 },
-                error: function (s, s2, s3) {
-                    console.log(s)
-                    console.log(s2)
-                    console.log(s3)
-                    console.log("异常！");
+
+            ], function (obj, evt) {
+                var errors_elm = $('#error_msg');
+                errors_elm.style.display = 'none';
+                //obj = {
+                //  callback:(error, evt, handles)
+                //  errors:Array[2]
+                //  fields:Object
+                //  form:form#example_form
+                //  handles:Object
+                //  isCallback:true
+                //  isEmail:(field)
+                //  isFax:(field)
+                //  isIp:(field)
+                //  isPhone:(field)
+                //  isTel:(field)
+                //  isUrl:(field)
+                //  maxLength:(field, length)
+                //  minLength:(field, length)
+                //  required:(field)
+                //} 
+                if (obj.errors.length > 0) {
+                    // 判断是否错误
+                    var error_str = '';
+                    for (var i = 0; i < obj.errors.length; i++) {
+                        error_str += obj.errors[i].message + '<br/>';
+                    }
+                    errors_elm.style.display = "block";
+                    errors_elm.innerHTML = error_str;
+                } else {
+                    $.ajax({
+                        //几个参数需要注意一下
+                        type: "POST", //方法类型
+                        url: "${url.loginAction}",
+                        data: $.param(dataObj),
+                        success: function (result) {
+                            alert("成功")
+                            console.log(result); //打印服务端返回的数据(调试用)
+                            if (result.resultCode == 200) {
+                                console.log('SUCCESS');
+                            };
+                        },
+                        error: function (s, s2, s3) {
+                            console.log(s)
+                            console.log(s2)
+                            console.log(s3)
+                            console.log("异常！");
+                        }
+                    });
                 }
-            });
+                console.log(validator);
+            })
         }
     </script>
 

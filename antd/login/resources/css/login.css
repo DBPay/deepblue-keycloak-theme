@@ -21,12 +21,13 @@ body {
   justify-content:center;
   flex-direction:column
 }
+.login-content .alert{
+  background: #f0f2f5;
+}
 .login-content .box {
-  width: 448px;
   border-radius: 8px;
-  background-color: #ffffff;
+  background-color: rgb(240, 242, 245);
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.24), 0 0 2px 0 rgba(0, 0, 0, 0.12);
-  margin: auto;
 }
 .login-content .box .box-container {
   width:100%;
@@ -71,7 +72,7 @@ body {
   border: none;
   border-bottom: 1px solid #ccc;
   outline: none;
-  background-color: #fff;
+  background-color: rgb(240, 242, 245);
 }
 .login-content .box input[type="text"]:focus, .login-content .box input[type="password"]:focus {
   border-bottom: 2px solid #ff9800;
@@ -117,7 +118,7 @@ body {
 }
 .message-text {
   width: 322px;
-  height: 60px;
+  height: 14px;
   opacity: 0.87;
   font-family: Muli;
   font-size: 14px;
@@ -130,10 +131,10 @@ body {
   color: red;
   border: 0px;
   position: relative;
-  top: 210px;
-  left: 64px;
+  top: 216px;
   display: inline-flex;
   align-items: center;
+  flex-direction: column;
 }
 .identity-providers {
   width: 270px;
@@ -175,4 +176,9 @@ body {
   font-family: Muli;
   font-size: 14px;
   margin-left: 30px;
+}
+.error_msg {
+  padding: 5px 5px 15px 5px;
+  color: red;
+  display: none;
 }
