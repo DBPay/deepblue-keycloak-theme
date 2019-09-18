@@ -1,44 +1,52 @@
-body, html {
+body,
+html {
   display: flex;
   flex-direction: column;
   flex: 1;
   overflow: hidden;
   min-height: 0;
   font-size: 14px;
-  color:rgba(0,0,0,.87);
-  margin:0;
+  color: rgba(0, 0, 0, .87);
+  margin: 0;
   height: 100%;
 }
+
 body {
   margin: 0
 }
+
 .login-content {
-  background-size:cover;
-  background-position:center;
+  background-size: cover;
+  background-position: center;
   min-height: 100%;
   min-width: 320px;
-  display:flex;
-  justify-content:center;
-  flex-direction:column
+  display: flex;
+  justify-content: center;
+  flex-direction: column
 }
-.login-content .alert{
+
+.login-content .alert {
   background: #f0f2f5;
 }
+
 .login-content .box {
   border-radius: 8px;
   background-color: rgb(240, 242, 245);
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.24), 0 0 2px 0 rgba(0, 0, 0, 0.12);
 }
+
 .login-content .box .box-container {
-  width:100%;
+  width: 100%;
   padding-left: 32px;
 }
+
 .login-content .box .logo {
   display: block;
   margin-left: auto;
   margin-right: auto;
   margin-top: 30px;
 }
+
 .login-content .box .application-name {
   width: 270px;
   font-family: Muli;
@@ -53,11 +61,13 @@ body {
   margin-left: 32px;
   margin-top: 40px;
 }
+
 .login-content .box .form {
   margin-left: 32px;
   margin-top: 55px;
   margin-bottom: -55px;
 }
+
 .login-content .box .login-field {
   width: 320px;
   height: 24px;
@@ -74,14 +84,18 @@ body {
   outline: none;
   background-color: rgb(240, 242, 245);
 }
-.login-content .box input[type="text"]:focus, .login-content .box input[type="password"]:focus {
+
+.login-content .box input[type="text"]:focus,
+.login-content .box input[type="password"]:focus {
   border-bottom: 2px solid #ff9800;
 }
-.login-content .box input[type="text"]:-webkit-autofill, .login-content .box input[type="password"]:-webkit-autofill
-{
+
+.login-content .box input[type="text"]:-webkit-autofill,
+.login-content .box input[type="password"]:-webkit-autofill {
   box-shadow: 0 0 0px 1000px white inset;
 }
-.login-content .box .submit{
+
+.login-content .box .submit {
   width: 320px;
   height: 36px;
   border-radius: 2px;
@@ -99,6 +113,7 @@ body {
   margin-top: 60px;
   margin-bottom: 60px;
 }
+
 .login-content .box .visibility {
   position: relative;
   left: 296px;
@@ -108,6 +123,7 @@ body {
   opacity: 0.54;
   border: none;
 }
+
 .login-content .box .copyright {
   min-width: 320px;
   text-align: center;
@@ -116,6 +132,7 @@ body {
   position: relative;
   top: 50px;
 }
+
 .message-text {
   width: 358px;
   height: 0px;
@@ -137,6 +154,7 @@ body {
   align-items: center;
   flex-direction: column; */
 }
+
 .identity-providers {
   width: 270px;
   font-family: Muli;
@@ -178,8 +196,77 @@ body {
   font-size: 14px;
   margin-left: 30px;
 }
+
 .error_msg {
   padding: 5px 5px 15px 5px;
   color: red;
+  display: none;
+}
+
+#kc-locale ul {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  list-style: none;
+  right: 0;
+  top: 20px;
+  min-width: 100px;
+  padding: 2px 0;
+  border: solid 1px #bbb;
+}
+
+#kc-locale:hover ul {
+  display: block;
+  margin: 0;
+}
+
+#kc-locale ul li a {
+  display: block;
+  padding: 5px 14px;
+  color: #000 !important;
+  text-decoration: none;
+  line-height: 20px;
+}
+
+#kc-locale ul li a:hover {
+  color: #4d5258;
+  background-color: #d4edfa;
+}
+
+#kc-locale-dropdown a {
+  color: #4d5258;
+  background: 0 0;
+  padding: 0 15px 0 0;
+  font-weight: 300;
+}
+
+#kc-locale-dropdown a:hover {
+  text-decoration: none;
+}
+
+a#kc-current-locale-link {
+  display: block;
+  padding: 0 5px;
+}
+
+/* a#kc-current-locale-link:hover {
+  background-color: rgba(0,0,0,0.2);
+} */
+
+a#kc-current-locale-link::after {
+  content: "\2c5";
+  margin-left: 4px;
+}
+
+
+#kc-locale {
+  position: absolute;
+  width: 200px;
+  top: 20px;
+  right: 20px;
+  text-align: right;
+  z-index: 9999;
+}
+#kc-locale-dropdown ul{
   display: none;
 }
